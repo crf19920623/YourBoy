@@ -20,7 +20,15 @@
 
 <script>
   export default {
-    name: 'Index'
+    name: 'Index',
+    data () {
+      return {
+        swiperOption: {
+ 					autoplay: 1000,
+ 					direction: 'horizontal'
+        }
+      }
+    }
   }
 </script>
 
