@@ -8,5 +8,8 @@
   }
 </script>
 
-<style scoped>
+<style>
+  body{
+  	background:red;
+  }
 </style>
