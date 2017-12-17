@@ -72,7 +72,10 @@
       <div class="weekend">
         <h2 class="weekend-title">周末去哪儿</h2>
         <div class="weekend-spot" v-for="item of weekendList" :key="item.id">
-          <img :src="item.imgUrl" class="weekend-img">
+          <div class="weekend-img-con">
+            <img :src="item.imgUrl" class="weekend-img">
+          </div>
+          
           <div class="weekend-quna">
             <div class="quna-title">{{item.title}}</div>
             <div class="weekend-description">
@@ -81,8 +84,6 @@
           </div>
         </div>
       </div>
-   
-
 
     </div>
        <div class="ticket">
@@ -396,9 +397,14 @@
     line-height: .8rem;
     margin-left: .26rem;
   }
+  .weekend-img-con{
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    padding-bottom: 37.4%;
+  }
   .weekend-img{
     width: 100%;
-    height: 2.84rem;
   }
   .weekend-quna{
     height: ;
