@@ -10,7 +10,7 @@
   		</div>
   		<div class="city">城市</div>
   	</header>
-
+    
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide v-for="item of swiperInfo" :key="item.id">
         <div class="swiper-img-con">
@@ -69,7 +69,7 @@
         </div>
 
       </div>
-      <!-- <div class="weekend">
+      <div class="weekend">
         <h2 class="weekend-title">周末去哪儿</h2>
         <div class="weekend-spot" v-for="item of weekendList" :key="item.id">
           <img :src="item.imgUrl" class="weekend-img">
@@ -80,9 +80,59 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
+   
+
 
     </div>
+       <div class="ticket">
+        <i class="mark iconfont">&#xe63a;</i>
+        <div class="ticket-info">
+          <span class="ticket-desc">票面价</span>是指通过景区指定窗口售卖的纸质门票上标注的价格
+        </div>
+      </div>
+
+      <div class="trickAndhotle">
+        <ul>
+          <li>
+            <i class="iconfont">&#xe600;</i>
+            <a href="#" class="plane">机票</a>
+          </li>
+          <li>
+            <i class="iconfont">&#xe64f;</i>
+            <a href="#" class="hotle">酒店</a>
+          </li>
+          <li>
+            <a href="#" class="plane">公寓</a>
+          </li>
+          <li>
+            <a href="#" class="hotle">更多</a>
+          </li>
+        </ul>
+          
+      </div>
+      <div class="nav">
+        <li><a href="#">登录</a></li>
+        <li><a href="#">我的订单</a></li>
+        <li><a href="#">最近浏览</a></li>
+        <li><a href="#">关于我们</a></li>
+      </div>
+      <div class="footer">       
+          <div class="versions">
+            <li>
+              <a href="#" class="touch">触屏版</a>
+            </li>
+            <li>
+               <a href="#">电脑版</a>
+            </li>
+          </div>
+          <div class="copyRight">
+            <span>Qunar 京ICP备05021087</span>
+            <a href="#">意见反馈</a>
+          </div>
+
+      </div>
+
   </div>
 </template>
 
@@ -125,6 +175,7 @@
       },
 
       handleGetDataSucc (res) {
+        console.log(res)
         const body = res.body
         if (body && body.data && body.data.swiper) {
           this.swiperInfo = body.data.swiper
@@ -145,6 +196,7 @@
 <style scoped>
 	.header{
 		display: flex;
+    line-height: .86rem;
 		background: #05bad5;
 		color: #fff;
 	}
@@ -256,13 +308,15 @@
   .hotSpring{
     width: 50%;
     background: url(http://img1.qunarzz.com/piao/fusion/1710/a2/e395615b16fb1302.png)  center center no-repeat;
-    background-size:90% 90%;
+    background-size: auto 100%;
     border-right: 1px solid #eee;
+    list-style: none;
   }
   .promotion{
     width: 50%;
     background: url(http://img1.qunarzz.com/piao/fusion/1711/8a/4c62d1a89fc2d602.png) center center no-repeat;
-    background-size:90% 90%;
+    background-size: auto 100%;
+    list-style: none;
   }
   .hot-sale{
     background: #fff;
@@ -271,7 +325,8 @@
   .hot-title{
     height: .8rem;
     line-height: .8rem;
-    margin-left: .26rem;
+    padding-left: .26rem;
+    background: red;
   }
   .travel{
     
@@ -369,4 +424,97 @@
     white-space: nowrap;
     text-overflow: ellipsis
   }
+  .ticket{
+    display: flex;
+    height: .32rem;
+    padding: .14rem .1rem;
+    margin-top: .1rem;
+    color: #616161;
+  }
+  .mark{ 
+    display: block;   
+    font-size: .24rem;
+    display: block;
+    float: left;
+    line-height: .32rem;
+    margin-left: .16rem;
+    margin-right: .08rem
+  }
+  .ticket-info{
+    color: #616161;
+    font-size: .24rem;
+    line-height: .32rem;
+    font-size: 900;
+  }
+  .ticket-desc{
+    line-height: .32rem;
+  }
+  .trickAndhotle{
+   
+    width: 5rem;
+    height: .5rem;
+    line-height: .25rem;
+    overflow: hidden;
+    padding: .1rem .1rem 0 .1rem;
+    margin: 0 auto;
+  }
+  .trickAndhotle ul{
+    display: flex;
+    justify-content: space-between;
+    width: 5rem;
+  }
+  .trickAndhotle li{
+  }
+  .trickAndhotle li a{
+    color: #9e9e9e;
+    text-decoration: underline;
+  }
+  .nav{
+    width:100%;
+    height:.6rem;
+    line-height: .16rem;
+    border-bottom: 1px solid #ccc;
+  }
+  .nav li{
+    float: left;
+    list-style: none;
+  }
+  .nav li a{
+    display: inline-block;
+    line-height: .6rem;
+    padding-left: .4rem;
+    font-size: .28rem;
+  }
+
+  .footer{
+    margin-left: .16rem;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .footer li{
+    display: inline-block;
+    margin: 0 15px;
+  }
+  .footer li a{
+    font-size: 14px;
+  }
+  .versions{
+
+  }
+  .versions li{
+  }
+  .versions li .touch{
+    color: #000;
+  }
+  .copyRight{
+    color: #9e9e9e;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .copyRight a{
+    color: #9e9e9e;
+    height: 33px;
+  }
+
 </style>

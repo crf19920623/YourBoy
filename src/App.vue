@@ -10,6 +10,6 @@
 
 <style>
   body{
-  	background:red;
+  	background: pink;
   }
 </style>
