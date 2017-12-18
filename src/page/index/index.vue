@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-if="show">
   	<header class="header">
   		<div class="back iconfont">&#xe603;</div>
   		<div class="search">
@@ -20,7 +20,7 @@
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
 
-    <swiper :options="iconOption" class="iconSwiper">
+    <swiper :options="iconOption" class="icon-swiper">
       <swiper-slide v-for="(pageInfo, index) of pages" :key="index">
         <div class="icon-wrapper">
           <div v-for="item of pageInfo" :key="item.id" class="icon-item">
@@ -33,18 +33,18 @@
       </swiper-slide>
       <div class="icon-pagination"  slot="pagination"></div>
     </swiper>
-    <div class="posAndSpring">
+    <div class="pos-spring">
       <div class="position">
         <i class="location iconfont">&#xe601;</i>
-        <span>定位失败</span>
+        <span class="">定位失败</span>
       </div>
       <div class="spring">
         <i class="spring iconfont">&#xe6f3;</i> 
         <span>5折温泉</span>
       </div>
     </div>
-    <div class="springAndpromotion">
-      <li class="hotSpring"></li>
+    <div class="spring-promotion">
+      <li class="hot-spring"></li>
       <li class="promotion"></li>
     </div>
     <div class="hot-sale">
@@ -52,20 +52,20 @@
       <div class="travel">
         <div class="hot-travel" v-for="item of travelList" :key="item.id">
           <img :src="item.imgUrl" alt="" class="travel-img">
-          <div class="spotAndprice">         
+          <div class="spot-price">         
             <div class="travel-city">
               <div class="spot-title">{{item.title}}</div>
               <div class="description">{{item.description}}</div>
             </div>
             <div class="spot-sprice">
-              ￥
+              &yen;
               <span class="spot-num">{{item.price}}</span>
               <em class="spot-character">起</em>
             </div>
           </div>
         </div>
-        <div class="allProduct">
-          <a href="#" class="productCheck">查看所有产品</a>
+        <div class="all-product">
+          <a href="#" class="product-check">查看所有产品</a>
         </div>
 
       </div>
@@ -93,7 +93,7 @@
         </div>
       </div>
 
-      <div class="trickAndhotle">
+      <div class="trick-hotle">
         <ul>
           <li>
             <i class="iconfont">&#xe600;</i>
@@ -127,7 +127,7 @@
                <a href="#">电脑版</a>
             </li>
           </div>
-          <div class="copyRight">
+          <div class="copy-right">
             <span>Qunar 京ICP备05021087</span>
             <a href="#">意见反馈</a>
           </div>
@@ -142,12 +142,13 @@
     name: 'Index',
     data () {
       return {
+        show: true,
         swiperInfo: [],
         iconInfo: [],
         travelList: [],
         weekendList: [],
         swiperOption: {
-          autoplay: 10000,
+          autoplay: 3000,
           pagination: '.swiper-pagination',
           loop: true
         },
@@ -195,161 +196,168 @@
 </script>
 
 <style scoped>
-	.header{
+	.header {
 		display: flex;
-    line-height: .86rem;
+    height: .86rem;
 		background: #05bad5;
 		color: #fff;
 	}
-	.back{
+	.back {
 		width: .64rem;
 		line-height: .86rem;
 		text-align: center;
 	}
-	.search{
+	.search {
     display:flex;
 		flex: 1;
 		margin: .14rem .18rem;
 		background: #fff;
 		border-radius: .1rem;
+    text-indent: .2rem;
 	}
-  .prompt{
+  .prompt {
     line-height: .58rem;
     font-size: .26rem;
     color: #ccc;
   }
-  .zoom{
+  .zoom {
     margin:0 0.12rem;
     line-height: .58rem;
     font-size: .28rem;
     color:#ccc;
   }
-	.single{
+	.single {
 
   }
-	.city{
-		width: 1.14rem;
+	.city {
+		padding-right: .4rem;
 		line-height: .86rem;
 		text-align: left;
+    margin-right: .17rem;
 	}
-	.city::after{
+	.city::after {
 		content: "";
 		display: block;
 		width: 0px;
 		height: 0px;
-		border: 0.1rem solid #fff;
+		border: 0.15rem solid #fff;
 		border-color: white transparent transparent transparent;
 		position: absolute;
-    right: 0.3rem;
+    right: 0.2rem;
     top: 0.36rem;
 	}
-  .swiper{
+  .swiper {
     background:#fff;
   }
-  .swiper-img-con{
+  .swiper-img-con {
   	overflow: hidden;
     width: 100%;
     height: 0;
     padding-bottom: 31.25%;
   }
-  .swiper-img{
+  .swiper-img {
   	width: 100%;
   }
-  .iconSwiper{
+  .icon-swiper {
     background:#fff;
   }
-  .icon-wrapper{
+  .icon-wrapper {
 
   }
-  .icon-item{
+  .icon-item {
     box-sizing:border-box;
     float: left;
     width: 25%;
     padding: .3rem;
   }
-  .icon-img-con{
+  .icon-img-con {
     width: 100%;
     height: 0;
     padding-bottom: 100%;
     text-align: center;
   }
-  .icon-img{
+  .icon-img {
     width: 60%;
     margin-bottom: .2rem;
   }
-  .titlte{
+  .titlte {
     font-size: .18rem;
   }
-  .icon-pagination{
+  .icon-pagination {
     text-align: center;
   }
-  .posAndSpring{
+  .pos-spring {
     display: flex;
     height: 1rem;
     text-align: center;
     border-top:1px solid #ddd;
     background: #fff;
   }
-  .position{
+  .position {
     width: 50%;
     line-height: 1rem;
     border-right: 1px solid #ddd;
   }
-  .spring{
+  .spring {
     width:50%;
     line-height: 1rem;
   }
-  .springAndpromotion{
+  .spring-promotion {
     display: flex;
     height: 1.6rem;
     text-align: center;
     background: #fff;
     margin-top: .2rem;
   }
-  .hotSpring{
+  .hot-spring {
     width: 50%;
     background: url(http://img1.qunarzz.com/piao/fusion/1710/a2/e395615b16fb1302.png)  center center no-repeat;
     background-size: auto 100%;
     border-right: 1px solid #eee;
     list-style: none;
   }
-  .promotion{
+  .promotion {
     width: 50%;
     background: url(http://img1.qunarzz.com/piao/fusion/1711/8a/4c62d1a89fc2d602.png) center center no-repeat;
     background-size: auto 100%;
     list-style: none;
   }
-  .hot-sale{
+  .hot-sale {
     background: #fff;
 
   }
-  .hot-title{
+  .hot-title {
+    width: 100%;
+    box-sizing:border-box;
     height: .8rem;
     line-height: .8rem;
-    padding-left: .26rem;
+    padding: 0 .26rem;
     background: red;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
   }
   .travel{
     
   }
-  .hot-travel{
+  .hot-travel {
     height: 1.4rem;
     padding: .24rem;
     display: flex;
   }
-  .travel-img{
+  .travel-img {
     width: 1.4rem;
     height: 1.4rem;
   }
-  .spotAndprice{
+  .spot-price {
     display: flex;
     flex-direction: column;
   }
-  .travel-city{
+  .travel-city {
     width: 5.4rem;
     padding-left: .3rem; 
   }
-  .spot-title{
+  .spot-title {
     overflow: hidden;
     margin-top: .04rem;
     margin-bottom: .1rem;
@@ -358,7 +366,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .description{
+  .description {
     overflow: hidden;
     margin-top: .04rem;
     margin-bottom: .1rem;
@@ -367,51 +375,51 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .spot-sprice{
+  .spot-sprice {
     margin-left: .3rem;
     color: #ff8300;
     font-size: .24rem;
   }
 
-  .spot-num{
+  .spot-num {
     font-size: .36rem;
   }
-  .spot-character{
+  .spot-character {
     font-size: .24rem;
     color: #9e9e9e;
   }
-  .allProduct{
+  .all-product {
     text-align: center;
     height: .88rem;
   }
-  .productCheck{
+  .product-check {
     display: block;
     height: .88rem;
     line-height: .88rem;
   }
-  .weekend{
+  .weekend {
     width:100%;
   }
-  .weekend-title{
+  .weekend-title {
     height: .8rem;
     line-height: .8rem;
     margin-left: .26rem;
   }
-  .weekend-img-con{
+  .weekend-img-con {
     overflow: hidden;
     width: 100%;
     height: 0;
     padding-bottom: 37.4%;
   }
-  .weekend-img{
+  .weekend-img {
     width: 100%;
   }
-  .weekend-quna{
+  .weekend-quna {
     height: ;
     padding: .14rem .2rem .2rem .2rem;
   }
 
-  .quna-title{
+  .quna-title {
     margin-left: 0;
     overflow: hidden;
     padding-right: 1.4rem;
@@ -421,7 +429,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .weekend-description{
+  .weekend-description {
     overflow: hidden;
     padding-right: 1.4rem;
     color: #616161;
@@ -430,14 +438,14 @@
     white-space: nowrap;
     text-overflow: ellipsis
   }
-  .ticket{
+  .ticket {
     display: flex;
     height: .32rem;
     padding: .14rem .1rem;
     margin-top: .1rem;
     color: #616161;
   }
-  .mark{ 
+  .mark { 
     display: block;   
     font-size: .24rem;
     display: block;
@@ -446,16 +454,16 @@
     margin-left: .16rem;
     margin-right: .08rem
   }
-  .ticket-info{
+  .ticket-info {
     color: #616161;
     font-size: .24rem;
     line-height: .32rem;
     font-size: 900;
   }
-  .ticket-desc{
+  .ticket-desc {
     line-height: .32rem;
   }
-  .trickAndhotle{
+  .trick-hotle {
    
     width: 5rem;
     height: .5rem;
@@ -464,61 +472,61 @@
     padding: .1rem .1rem 0 .1rem;
     margin: 0 auto;
   }
-  .trickAndhotle ul{
+  .trick-hotle ul {
     display: flex;
     justify-content: space-between;
     width: 5rem;
   }
-  .trickAndhotle li{
+  .trick-hotle li {
   }
-  .trickAndhotle li a{
+  .trick-hotle li a {
     color: #9e9e9e;
     text-decoration: underline;
   }
-  .nav{
+  .nav {
     width:100%;
     height:.6rem;
     line-height: .16rem;
     border-bottom: 1px solid #ccc;
   }
-  .nav li{
+  .nav li {
     float: left;
     list-style: none;
   }
-  .nav li a{
+  .nav li a {
     display: inline-block;
     line-height: .6rem;
     padding-left: .4rem;
     font-size: .28rem;
   }
 
-  .footer{
+  .footer {
     margin-left: .16rem;
     padding-top: 10px;
     text-align: center;
   }
-  .footer li{
+  .footer li {
     display: inline-block;
     margin: 0 15px;
   }
-  .footer li a{
+  .footer li a {
     font-size: 14px;
   }
-  .versions{
+  .versions {
 
   }
-  .versions li{
+  .versions li {
   }
-  .versions li .touch{
+  .versions li .touch {
     color: #000;
   }
-  .copyRight{
+  .copy-right {
     color: #9e9e9e;
     text-align: center;
     font-size: 14px;
     padding: 10px;
   }
-  .copyRight a{
+  .copy-right a {
     color: #9e9e9e;
     height: 33px;
   }
