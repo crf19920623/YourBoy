@@ -197,10 +197,14 @@ export default {
   background: #fff;
   height: 1.6rem;
 }
-.icon-name{
+.icon-name{ 
 	font-size: 0.12rem;
 	color: #000;
 	text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .icon-img-con {
   width: 100%;
@@ -221,6 +225,9 @@ export default {
   line-height: 0.97rem;
   border-top: 1px solid #e1e1e1;
   font-size: 0.12rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .list-message-location {
 	box-sizing: border-box;
@@ -272,11 +279,19 @@ export default {
 	font-size: 0.28rem;
 	color: #000;
 	line-height: 0.36rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .hotPromotionCon-description {
 	font-size: 0.24rem;
 	color: #a9a9a9;
 	line-height: 0.56rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .hotPromotionCon-bottom {
   margin-left: 1.6rem;
@@ -309,6 +324,10 @@ export default {
 	line-height: 0.26rem;
 	padding-top: 0.26rem;
 	background: #fff;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .monthPlace-description {
 	color: #636363;
@@ -316,6 +335,10 @@ export default {
 	line-height: 0.24rem;
 	padding: 0.2rem 0 0.4rem 0.24rem;
 	background: #fff;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .annotation {
 	font-size: 0.24rem;
@@ -324,6 +347,10 @@ export default {
 	margin-top: 0.08rem;
 	background: #fff;
 	border-bottom: 1px solid #e1e1e1;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .annotation i {
 	margin: 0 0.1rem 0;
