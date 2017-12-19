@@ -64,6 +64,7 @@
     	</div>
     	<p class="annotation"><i class="iconfont">&#xe640;</i><span class="papPrice">票面价</span>是指通过景区指定窗口售卖的纸质门票上标注的价格</p>
     </main>
+
     <div class="more">
     	<div class="more-big">
     	  <div class="more-con"><i class="iconfont">&#xe64e;</i>机票</div>
@@ -72,6 +73,7 @@
     	  <div class="more-con more-right"><i class="more-icon iconfont">&#xe666;</i>更多</div>
     	</div> 
     </div>
+    
     <ul class="nav">
     	<li>登录</li>
     	<li>我的订票</li>
