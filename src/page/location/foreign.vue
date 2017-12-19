@@ -2,79 +2,63 @@
 <div class="root">
   <header class="header">
     <div class='back iconfont'>&#xe602;</div>
-    <div class='country country-in country-commen1'>国内</div><router-link to="/foreign"><div class='country country-out country-commen2'>国外</div></router-link>
+    <router-link to="/location"><div class='country country-in country-commen2'>国内</div></router-link><div class='country country-out country-commen1'>国外</div>
   </header>
   <div class="space"></div>
 	<div class="search">
-		<input class="search-input" type="text" v-model="value" placeholder="输入城市名或拼音">  
+		<input class="search-input" type="text" placeholder="输入城市名或拼音">  
 	</div>
 	<div class="place-item">您的位置</div>
 	<div class="place-city">
     	<div class="place-city-con">北京</div>
 	</div>
-	<div class="place-item">热门城市</div>
+	<div class="place-item">热门国家</div>
 	<ul class="hotCity clearfix">
 		<li class="hotCity-con" v-for="item of hotCity" :key="item.id"><a href="javaScript:;">{{item.city}}</a></li>
 	</ul>
 	<div class="area" v-for="(item,key) of area">
-	  <div class="place-item" ref="areaCode">{{key}}</div>
+	  <div class="place-item">{{key}}</div>
 	  <ul class="area-all">
-	  	<li class="area-con" v-for="ite of item" :key="ite.id" ref="areaName">{{ite.city}}</li>
+	  	<li class="area-con" v-for="ite of item" :key="ite.id">{{ite.city}}</li>
 	  </ul>
 	</div>
 	<ul class="nav" @click="handleClick">
-		<li v-for="item of code">{{item}}</li>
+		<li v-for="item of code" class="item">{{item}}</li>
 	</ul>
 
 </div>
 </template>
 <script>
-import pinyin from 'pinyin'
-export default {
-  name: 'Location',
-  data () {
-    return {
-      hotCity: [],
-      area: [],
-      code: [],
-      areaCodeArr: [],
-      codeDom: '',
-      codeCon: '',
-      value: ''
-    }
-  },
-  methods: {
-    getIndexData () {
-      this.$http.get('/static/location.json')
-        .then(this.handleGetDataSucc.bind(this))
-    },
-    handleGetDataSucc (res) {
-      const body = res.body
-      if (body && body.data && body.data.hotCity && body.data.area) {
-        this.hotCity = body.data.hotCity
-        this.area = body.data.area
-        this.code = body.data.code
+  export default {
+    name: 'Location',
+    data () {
+      return {
+        hotCity: [],
+        area: [],
+        code: []
       }
     },
-    handleClick (e) {
-      this.codeDom = e.target
-      this.codeCon = this.codeDom.innerHTML
-      this.areaCodeArr = this.$refs.areaCode
-      // console.log(pinyin('中心'))
-      for (var item of this.areaCodeArr) {
-        if (item.innerHTML === this.codeCon) {
-          window.scrollTo(0, (item.offsetTop - 43))
+    methods: {
+      getIndexData () {
+        this.$http.get('/static/location.json')
+          .then(this.handleGetDataSucc.bind(this))
+      },
+      handleGetDataSucc (res) {
+        const body = res.body
+        if (body && body.data && body.data.hotCity && body.data.area) {
+          this.hotCity = body.data.hotCity
+          this.area = body.data.area
+          this.code = body.data.code
         }
-      };
+      },
+      handleClick (e) {
+        console.log(e.target.innerText)
+      }
+    },
+    created () {
+      this.getIndexData()
     }
-  },
-  created () {
-    this.getIndexData()
-  },
-  updated () {
-    console.log(this.value)
   }
-}
 </script>
 <style scoped>
 .root{
