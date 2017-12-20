@@ -8,41 +8,45 @@
       </router-link>
 		</header>
 
-		<swiper :options="swiperOption">
-      <swiper-slide v-for="item in swiperInfo" :key="item.id">
-        <div class="swiper-img-con">
-          <img  class="swiper-img" :src="item.imgUrl"/>
-        </div>
-      </swiper-slide>
-      <div class="swiper-pagination"  slot="pagination"></div>
-    </swiper>
-
-    <swiper class="icon-swiper" :options="iconSwiper">
-      <swiper-slide v-for="(pageInfo, index) in pages" :key="index">
-        <div v-for="item in pageInfo" :key="item.id" class="icon-item">
-          <div class="icon-img-con">
-            <img  class="icon-img" :src="item.imgUrl"/>
-            <p class="icon-name">{{item.name}}</p>  
+    <div class="move">
+  		<swiper :options="swiperOption">
+        <swiper-slide v-for="item in swiperInfo" :key="item.id">
+          <div class="swiper-img-con">
+            <img  class="swiper-img" :src="item.imgUrl"/>
           </div>
-        </div>
-      </swiper-slide>
-      <div class="pagination"  slot="pagination"></div>
-    </swiper>
+        </swiper-slide>
+        <div class="swiper-pagination"  slot="pagination"></div>
+      </swiper>
+    </div>
+
+    <div class="move-icon">
+      <swiper class="icon-swiper" :options="iconSwiper">
+        <swiper-slide v-for="(pageInfo, index) in pages" :key="index">
+          <div v-for="item in pageInfo" :key="item.id" class="icon-item">
+            <div class="icon-img-con">
+              <img  class="icon-img" :src="item.imgUrl"/>
+              <p class="icon-name">{{item.name}}</p>  
+            </div>
+          </div>
+        </swiper-slide>
+        <div class="pagination"  slot="pagination"></div>
+      </swiper>
+    </div>
 
     <ul class="list-message" v-for="(item,index) in message" :key="index">
     	<li class="list-message-con list-message-location"><i class="iconfont">&#xe603;</i>{{item.name1}}</li>
     	<li class="list-message-con"><i class="iconfont">&#xe60b;</i>{{item.name2}}</li>
     </ul>
-
-    <ul class="promotion" v-for="item in promotion">
-      <li class="promotion-con promotion-con-left">
-      	<img class="promotion-img" :src="item.imgLeft" alt="">
-      </li>
-      <li class="promotion-con">
-      	<img class="promotion-img" :src="item.imgRight" alt="">
-      </li>
-    </ul>
-
+    <div class="move-hot">
+      <ul class="promotion" v-for="item in promotion">
+        <li class="promotion-con promotion-con-left">
+        	<img class="promotion-img" :src="item.imgLeft" alt="">
+        </li>
+        <li class="promotion-con">
+        	<img class="promotion-img" :src="item.imgRight" alt="">
+        </li>
+      </ul>
+    </div>
     <main class="main">
     	<p class="headline">热销推荐</p>
     	<div class="hotPromotionCon" v-for="item in hotPromotionCon">
@@ -184,14 +188,21 @@ export default {
   margin-right: 0.25rem;
   color: #fff;
 }
+.move{
+  height: 0;
+  padding-bottom: 31.25%;
+  overflow: hidden;
+}
 .swiper-img-con {
-	overflow: hidden;
 	width: 100%;
-	height: 0;
-	padding-bottom: 31.25%;
 }
 .swiper-img {
 	width: 100%;
+}
+.move-icon {
+  height: 0;
+  padding-bottom: 51.73%;
+  overflow: hidden;
 }
 .icon-swiper{
 	background: #fff;
@@ -243,6 +254,8 @@ export default {
 .list-message {
 	overflow: hidden;
 	background: #fff;
+  height: 0;
+  padding-bottom: 13.6%;
 }
 .promotion {
 	overflow: hidden;
@@ -267,6 +280,11 @@ export default {
 	font-size: 0.26rem;
 	line-height: 0.8rem;
 	margin-left: 0.24rem;
+}
+.move-hot {
+  height: 0;
+  padding-bottom: 25.6%;
+  overflow: hidden;
 }
 .hotPromotionCon {
 	width: 100%;
