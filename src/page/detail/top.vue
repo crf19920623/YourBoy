@@ -1,0 +1,54 @@
+<template>
+  <div class="go-top" ref="goTop" @click="handleClickTop" style="transition: 400ms; transform: translate(0px, -1rem) translateZ(0px);">
+		<div class="go-top-inner">
+			<div class="go-inner-arrow"></div>
+		</div>
+	</div>
+</template>
+
+<script>
+  export default {
+    name: 'app',
+    methods: {
+      handleClickTop () {
+        window.scrollTo(0, 0)
+      }
+    }
+  }
+</script>
+
+<style scoped>
+	.go-top{
+		transition: 400ms;
+		position: fixed;
+    z-index: 99;
+    right: .2rem;
+    bottom: 0;
+    width: .9rem;
+    height: .9rem;
+    background: rgba(0,0,0,.6);
+    border-radius: 50%;
+	}
+	.go-top-inner{
+		position: absolute;
+    top: 50%;
+    left: 50%;
+    width: .2rem;
+    height: .14rem;
+    margin-left: -.1rem;
+    background: #fff;
+    font-size: 0;
+    line-height: 0
+	}
+	.go-inner-arrow{
+		position: absolute;
+		overflow: hidden;
+    top: -.16rem;
+    left: -.1rem;
+    width: 0;
+    height: 0;
+    border-width: 0 .2rem .16rem;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+	}
+</style>

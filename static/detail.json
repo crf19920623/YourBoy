@@ -1,0 +1,107 @@
+{
+  "ret": true,
+  "data": {  
+    "anchorInfo":[{
+        "id": "0001",
+        "anchor": "超值温泉"
+      },{
+        "id": "0001",
+        "anchor": "山水温泉"
+      },{
+        "id": "0001",
+        "anchor": "养生温泉"
+      },{
+        "id": "0001",
+        "anchor": "亲子温泉"
+      },{
+        "id": "0001",
+        "anchor": "省心一日游"
+      },{
+        "id": "0001",
+        "anchor": "温泉贴士"
+      }],
+    "spotTrickInfo": [{
+      "id":"0001",
+      "img": "//img1.qunarzz.com/sight/p0/1507/d5/a9c70a3b26bd90e2e9274eae72ae6727.water.jpg_200x180_ddf33dd2.jpg",
+      "title": "【特权日】北京九华温泉文化主题公园- 晚场温泉票（17:00-23:00使用）",
+      "desc1": "露天温泉",
+      "desc2": "温柔之乡",
+      "new": "78",
+      "old": "300"
+    },{
+      "id":"0002",
+      "img": "//img1.qunarzz.com/sight/p0/201303/04/50b65ba27d711f92c8d65eac.jpg_200x180_19d66131.jpg",
+      "title": "北京红栌山庄温泉门票",
+      "desc1": "儿童乐园",
+      "desc2": "性价比高",
+      "new": "88",
+      "old": "280"
+    }],
+    "landscapeInfo": [{
+      "id":"0001",
+      "img": "//img1.qunarzz.com/sight/p0/1411/43/dea8b51719a4a69b68777baa68c146e4.water.jpg_600x237_3c8b55d2.jpg",
+      "name": "春晖园温泉度假村",
+      "price": "120",
+      "sign1": "私汤",
+      "sign2": "景色优美",
+      "sign3": "SPA",
+      "desc": " j*7：服务态度超级好，设施很齐全，什么都有，团购价格很合理，这是一次超级好的温泉度假，下次还会来这里！"
+    },{
+      "id":"0002",
+      "img": "//img1.qunarzz.com/sight/p0/1507/d5/a9c70a3b26bd90e2e9274eae72ae6727.water.jpg_600x237_f2a6382e.jpg",
+      "name": "九华山庄温泉主题公园",
+      "price": "128",
+      "sign1": "泥灸",
+      "sign2": "泳池",
+      "sign3": "环境好",
+      "desc": " c*3：取票方便，环境很好，室内外各有一个游泳池，室外的水深1.6米，室内水深1.8米。个人感觉室外游的比较舒服。"
+    },{
+      "id":"0003",
+      "img": "//img1.qunarzz.com/piao/fusion/1710/be/d25057d66da24d02.jpg_600x237_d65ad838.jpg",
+      "name": "静之湖温泉",
+      "price": "107",
+      "sign1": "私汤",
+      "sign2": "景色优美",
+      "sign3": "SPA",
+      "desc": " j*8：温泉池室内室外都有，玫瑰、薰衣草、芦荟、啤酒、牛奶，各种功能的汤池任你选择，孩子的浅池里还有海洋球可以玩。泡完还有香薰屋、盐浴可以休息。"
+    },{
+      "id":"0004",
+      "img": "//img1.qunarzz.com/sight/p0/1510/3a/3afa277c0f0bd43790.img.jpg_600x237_5256f5da.jpg",
+      "name": "瑞麟湾温泉",
+      "price": "138",
+      "sign1": "私汤",
+      "sign2": "景色优美",
+      "sign3": "SPA",
+      "desc": " w*4：价格很给力，我们定的住宿+温泉，性价比还不错，主要是私密性比较好，私汤感觉更干净卫生些。"
+    }],
+    "healthInfo": [{
+      "id":"0001",
+      "img": "//img1.qunarzz.com/piao/fusion/1710/c0/713852790f86e002.jpg_600x237_9af43732.jpg",
+      "name": "顺景温泉",
+      "price": "168",
+      "sign1": "养生餐",
+      "sign2": "泳池",
+      "sign3": "酒吧",
+      "desc": " C*2：真的很不错！温度适宜，水温很热，水很干净，景色也不错，服务很好，很适合带孩子去玩，一次很愉快的出行，全家都很开心！"
+    },{
+      "id":"0002",
+      "img": "//img1.qunarzz.com/sight/p0/1510/20/2048e6567ed9f6ea90.img.jpg_600x237_dabe4d2c.jpg",
+      "name": "北京华清温泉",
+      "price": "83",
+      "sign1": "环境赞",
+      "sign2": "室内外",
+      "sign3": "服务好",
+      "desc": " w*2：服务很好，很一流，环境不错，推荐附近的朋友过来。"
+    },{
+      "id":"0003",
+      "img": "//img1.qunarzz.com/sight/p0/1503/dc/dc651cd2e01fb900.img.jpg_600x237_c6d65aea.jpg",
+      "name": "南宫温泉水世界",
+      "price": "55",
+      "sign1": "环境赞",
+      "sign2": "室内外",
+      "sign3": "服务好",
+      "desc": " a*9：一家子去的，孩子特别开心，在里面一玩儿就是4个小时，回来的时候说没玩儿够。"
+    }]
+  }
+}
+
