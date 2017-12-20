@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Index from '@/page/index/index'
 import Location from '@/page/location/location'
 import Foreign from '@/page/location/foreign'
+import Vuex from 'Vuex'
+Vue.use(Vuex)
 Vue.use(Router)
 export default new Router({
   routes: [

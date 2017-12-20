@@ -1,26 +1,33 @@
 <template>
 <div class="root">
   <header class="header">
-    <div class='back iconfont'>&#xe602;</div>
+  	<router-link to="/">
+      <div class='back iconfont'>&#xe602;</div>
+    </router-link>
     <div class='country country-in country-commen1'>国内</div><router-link to="/foreign"><div class='country country-out country-commen2'>国外</div></router-link>
   </header>
   <div class="space"></div>
 	<div class="search">
 		<input class="search-input" type="text" v-model="value" placeholder="输入城市名或拼音">  
 	</div>
-	<div class="place-item">您的位置</div>
-	<div class="place-city">
-    	<div class="place-city-con">北京</div>
-	</div>
-	<div class="place-item">热门城市</div>
-	<ul class="hotCity clearfix">
-		<li class="hotCity-con" v-for="item of hotCity" :key="item.id"><a href="javaScript:;">{{item.city}}</a></li>
+	<ul ref="searchList">
+		<li v-for="item of searchCity" class="area-con">{{item.city}}</li>
 	</ul>
-	<div class="area" v-for="(item,key) of area">
-	  <div class="place-item" ref="areaCode">{{key}}</div>
-	  <ul class="area-all">
-	  	<li class="area-con" v-for="ite of item" :key="ite.id" ref="areaName">{{ite.city}}</li>
-	  </ul>
+	<div v-show="show">
+		<div class="place-item">您的位置</div>
+		<div class="place-city">
+	    	<div class="place-city-con">{{city}}</div>
+		</div>
+		<div class="place-item">热门城市</div>
+		<ul class="hotCity clearfix">
+			<li class="hotCity-con" v-for="item of hotCity" :key="item.id"><a href="javaScript:;">{{item.city}}</a></li>
+		</ul>
+		<div class="area" v-for="(item,key) of area">
+		  <div class="place-item" ref="areaCode">{{key}}</div>
+		  <ul class="area-all">
+		  	<li class="area-con" v-for="ite of item" :key="ite.id" ref="areaName" @click="handleCityChange(ite.city)">{{ite.city}}</li>
+		  </ul>
+		</div>
 	</div>
 	<ul class="nav" @click="handleClick">
 		<li v-for="item of code">{{item}}</li>
@@ -28,8 +35,7 @@
 
 </div>
 </template>
-<script>
-import pinyin from 'pinyin'
+<script scoped>
 export default {
   name: 'Location',
   data () {
@@ -38,9 +44,12 @@ export default {
       area: [],
       code: [],
       areaCodeArr: [],
-      codeDom: '',
+      searchArea: '',
       codeCon: '',
-      value: ''
+      value: '',
+      searchCity: [],
+      show: true,
+      city: '北京'
     }
   },
   methods: {
@@ -54,31 +63,58 @@ export default {
         this.hotCity = body.data.hotCity
         this.area = body.data.area
         this.code = body.data.code
+        this.searchArea = body.data
+      }
+    },
+    getSearchArea () {
+      this.$http.get('/static/searchArea.json')
+        .then(this.handleGetSearchAreaSucc.bind(this))
+    },
+    handleGetSearchAreaSucc (res) {
+      const body = res.body
+      if (body && body.data) {
+        this.searchArea = body.data
       }
     },
     handleClick (e) {
-      this.codeDom = e.target
-      this.codeCon = this.codeDom.innerHTML
+      this.codeCon = e.target.innerHTML
       this.areaCodeArr = this.$refs.areaCode
-      // console.log(pinyin('中心'))
       for (var item of this.areaCodeArr) {
         if (item.innerHTML === this.codeCon) {
           window.scrollTo(0, (item.offsetTop - 43))
         }
-      };
+      }
+    },
+    handleCityChange (city) {
+      this.$store.commit('changeCity', city)
+      this.city = city
     }
   },
   created () {
     this.getIndexData()
+    this.getSearchArea()
   },
-  updated () {
-    console.log(this.value)
+  destroyed () {
+    window.scrollTo(0, 0)
+  },
+  watch: {
+    value () {
+      for (var item in this.searchArea) {
+        this.searchCity = []
+        this.show = true
+        if (this.value === item) {
+          this.searchCity = this.searchArea[item]
+          this.show = false
+          return
+        }
+      }
+    }
   }
 }
 </script>
 <style scoped>
 .root{
-	background: #f5f5f5;
+	background: #fff;
 }
 .header{
 	background: #05bad5;
@@ -98,7 +134,8 @@ export default {
 	width: .64rem;
 	text-align: center;
 	display: inline-block;
-	float: left;  
+	float: left; 
+	color: #fff; 
 }
 .country {
 	width: 2.06rem;
@@ -145,6 +182,7 @@ export default {
 	padding-left: 0.32rem;
 	color: #707070;
 	border-bottom: 1px solid #ddd;
+	background: #f5f5f5;
 }
 .place-city {
 	line-height: 1.06rem;

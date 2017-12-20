@@ -3,7 +3,9 @@
 		<header class='header'>
 			<div class='back iconfont'>&#xe602;</div>
 			<div class='search'><a href="#" class='prompt'><i class='icon-magnify iconfont'>&#xe636;</i>输入城市/景点/游玩主题</a></div>
-			<div class='city'>城市<i class='iconfont'>&#xe600;</i></div>
+      <router-link to="../location">
+			  <div class='city'>{{city}}<i class='iconfont'>&#xe600;</i></div>
+      </router-link>
 		</header>
 
 		<swiper :options="swiperOption">
@@ -91,6 +93,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'Index',
   data () {
@@ -112,6 +115,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(['city']),
     pages () {
       const pages = []
       this.iconInfo.forEach((value, index) => {
@@ -178,6 +182,7 @@ export default {
   line-height: .86rem;
   text-align: left;
   margin-right: 0.25rem;
+  color: #fff;
 }
 .swiper-img-con {
 	overflow: hidden;
