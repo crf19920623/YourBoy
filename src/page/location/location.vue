@@ -36,6 +36,7 @@
 </div>
 </template>
 <script scoped>
+import { mapMutations } from 'vuex'
 export default {
   name: 'Location',
   data () {
@@ -85,10 +86,13 @@ export default {
         }
       }
     },
-    handleCityChange (city) {
-      this.$store.commit('changeCity', city)
-      this.city = city
-    }
+    ...mapMutations({
+      handleCityChange: 'changeCity'
+    })
+    // handleCityChange (city) {
+    //   this.$store.commit('changeCity', city)
+    //   this.city = city
+    // }
   },
   created () {
     this.getIndexData()
